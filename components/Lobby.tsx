@@ -242,6 +242,12 @@ function HostSetup({ view }: { view: PlayerView }) {
           />
         </label>
       </fieldset>
+      {view.demoStory ? (
+        <p className="mt-4 rounded-xl border border-gold/40 bg-gold/10 p-3 text-sm">
+          Modalità demo: sul server non c&apos;è ancora una chiave Gemini, quindi verrà usata la storia di esempio
+          “Delitto a Villa Ravelli”. Aggiungi <code>GEMINI_API_KEY</code> su Vercel per storie sempre nuove.
+        </p>
+      ) : null}
       {!locked ? (
         <Button className="mt-4 w-full" onClick={generate} loading={starting} disabled={players < MIN_PLAYERS || players > MAX_PLAYERS}>
           Genera la storia ({players} personaggi)

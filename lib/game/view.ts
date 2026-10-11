@@ -114,4 +114,6 @@ export interface PlayerView {
   } | null;
   /** Prossimo rilascio programmato di messaggi (ms epoch), per far partire un tick puntuale. */
   nextReleaseAt: number | null;
+  /** True se manca un LLM configurato e si usa la storia di esempio. */
+  demoStory: boolean;
 }

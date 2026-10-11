@@ -105,8 +105,8 @@ Non serve configurare Supabase Auth.
    |---|---|
    | `NEXT_PUBLIC_SUPABASE_URL` | URL del progetto Supabase |
    | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | publishable key |
-   | `SUPABASE_SECRET_KEY` | secret key (**solo server**) |
-   | `LLM_PROVIDER` | `gemini` |
+   | `SUPABASE_SECRET_KEY` | secret key (**solo server**; va bene anche `SUPABASE_SERVICE_ROLE_KEY`) |
+   | `LLM_PROVIDER` | facoltativo: vuoto = Gemini se c'è la chiave, altrimenti storia di esempio |
    | `GEMINI_API_KEY` | la tua chiave |
    | `GEMINI_MODEL` | es. `gemini-3.5-flash` |
    | `DAILY_GENERATION_CAP` | es. `20` (protegge il free tier) |

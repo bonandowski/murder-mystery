@@ -1,4 +1,5 @@
 import { isOnline, isVotePhase } from "@/lib/game/engine";
+import { providerName } from "@/lib/llm";
 import { parseSettings } from "@/lib/game/settings";
 import type { PlayerView } from "@/lib/game/view";
 import type {
@@ -248,5 +249,6 @@ export async function buildView(game: GameRow, me: PlayerRow, nowMs = Date.now()
         }
       : null,
     nextReleaseAt,
+    demoStory: providerName() === "mock",
   };
 }

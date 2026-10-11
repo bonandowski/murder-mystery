@@ -214,7 +214,9 @@ create index score_events_game_idx on public.score_events (game_id);
 -- così le transizioni con `where version = <attesa>` sono sicure.
 -- ---------------------------------------------------------------------------
 create or replace function public.touch_updated_at() returns trigger
-language plpgsql as $$
+language plpgsql
+set search_path = ''
+as $$
 begin
   new.updated_at := now();
   new.version := old.version + 1;
