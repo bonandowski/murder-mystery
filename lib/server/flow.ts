@@ -344,7 +344,7 @@ export async function closeVote(game: GameRow, round: VoteRoundRow): Promise<voi
       recipientCharacterId: null,
       kind: "reveal",
       title: "Arresto sbagliato!",
-      body: `{{${accused.key}}} è innocente e viene rilasciato/a. ${reveal ? `Ma ora tutti sanno questo: ${reveal}` : ""}`.trim(),
+      body: `{{${accused.key}}} è innocente e viene rilasciato/a.${reveal ? `\n\nOra però tutti conoscono il suo segreto: ${reveal}` : ""}`,
       payload: { result: "innocent", characterId: accused.id },
     });
   } else {

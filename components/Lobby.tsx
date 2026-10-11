@@ -212,7 +212,7 @@ function HostSetup({ view }: { view: PlayerView }) {
           <Label>Durata indicativa</Label>
           <Segmented
             value={String(settings.durationMin)}
-            options={DURATIONS.map((d) => ({ value: String(d), label: d < 120 ? `${d}′` : `${d / 60}h${d % 60 ? "½" : ""}` }))}
+            options={DURATIONS.map((d) => ({ value: String(d), label: d < 120 ? `${d}′` : `${Math.floor(d / 60)}h${d % 60 ? "½" : ""}` }))}
             onChange={(v) => update({ durationMin: Number(v) })}
           />
         </div>

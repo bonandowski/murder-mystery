@@ -17,8 +17,8 @@ export function RichText({ text, view, className = "" }: { text: string; view: P
         const nick = view.players.find((p) => p.id === c.playerId)?.nickname;
         return (
           <span key={i} className="font-semibold text-gold">
-            {isMe ? "te" : c.name}
-            {!isMe && nick ? <span className="font-normal text-muted"> ({nick})</span> : null}
+            {c.name}
+            {isMe ? <span className="font-normal text-muted"> (tu)</span> : nick ? <span className="font-normal text-muted"> ({nick})</span> : null}
           </span>
         );
       })}

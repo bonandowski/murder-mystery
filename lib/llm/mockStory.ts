@@ -14,6 +14,8 @@ interface Archetype {
   look: string;
   relationToVictim: string;
   secret: string;
+  /** Il segreto in terza persona, rivelato a tutti se arrestato da innocente. */
+  reveal: string;
   apparentMotive: string;
   killerMotive: string;
   alibi: string;
@@ -26,6 +28,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Completo scuro, borsa da medico, occhiali tondi",
     relationToVictim: "Suo medico personale",
     secret: "Hai prescritto al Conte un sonnifero molto più forte del dovuto, per farlo dormire e frugare nel suo studio.",
+    reveal: "Aveva prescritto al Conte un sonnifero fortissimo per frugare nel suo studio.",
     apparentMotive: "Il Conte minacciava di denunciarti per una diagnosi sbagliata.",
     killerMotive: "Il Conte aveva scoperto che falsificavi certificati medici e stasera voleva denunciarti.",
     alibi: "Dici di essere rimasto/a in biblioteca a leggere.",
@@ -36,6 +39,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Livrea nera, guanti bianchi, vassoio d'argento",
     relationToVictim: "Al suo servizio da una vita",
     secret: "Da anni sottrai bottiglie pregiate dalla cantina e le rivendi in paese.",
+    reveal: "Da anni rubava bottiglie pregiate dalla cantina per rivenderle in paese.",
     apparentMotive: "Il Conte stava per licenziarti senza liquidazione.",
     killerMotive: "Il Conte aveva scoperto i tuoi furti e voleva farti arrestare domattina.",
     alibi: "Dici di aver servito il caffè in salone tutta la sera.",
@@ -46,6 +50,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Abito elegante un po' sgualcito, sigaretta spenta in mano",
     relationToVictim: "Nipote e unico erede designato",
     secret: "Hai perso al gioco metà della dote di famiglia e il Conte non lo sa.",
+    reveal: "Ha perso al gioco metà della dote di famiglia.",
     apparentMotive: "Con il Conte morto erediti tutto.",
     killerMotive: "Il Conte voleva cambiare il testamento stasera stessa e diseredarti.",
     alibi: "Dici di essere stato/a in giardino a fumare.",
@@ -56,6 +61,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Gessato, orologio da taschino, spilla della fabbrica",
     relationToVictim: "Socio in affari",
     secret: "Stai trattando segretamente la vendita della fabbrica a un concorrente.",
+    reveal: "Stava vendendo di nascosto la fabbrica a un concorrente.",
     apparentMotive: "Il Conte bloccava ogni tua decisione in fabbrica.",
     killerMotive: "Il Conte aveva scoperto la tua vendita segreta e stava per estrometterti.",
     alibi: "Dici di essere stato/a al telefono con Milano nello studio piccolo.",
@@ -66,6 +72,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Abito da sera scintillante, sciarpa di seta, tanto profumo",
     relationToVictim: "Ospite d'onore e vecchia fiamma",
     secret: "Hai avuto una relazione con il Conte e hai una figlia segreta con lui.",
+    reveal: "Ha avuto una figlia segreta dal Conte.",
     apparentMotive: "Il Conte ti aveva lasciato/a pubblicamente anni fa.",
     killerMotive: "Il Conte rifiutava di riconoscere vostra figlia e stasera ti ha umiliato/a.",
     alibi: "Dici di esserti scaldato/a la voce nella sala della musica.",
@@ -76,6 +83,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Abito da cerimonia, fiore all'occhiello, anello di fidanzamento",
     relationToVictim: "Futuro genero/nuora",
     secret: "Il tuo titolo nobiliare è falso: l'hai comprato a Napoli.",
+    reveal: "Il suo titolo nobiliare è falso: comprato a Napoli.",
     apparentMotive: "Il Conte si opponeva al matrimonio.",
     killerMotive: "Il Conte aveva scoperto che il tuo titolo è falso e stava per annullare le nozze.",
     alibi: "Dici di aver ballato con la tua fidanzata tutta la sera.",
@@ -86,6 +94,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Completo grigio, cartella di pelle, penna stilografica",
     relationToVictim: "Suo legale di fiducia",
     secret: "Hai sottratto denaro dal fondo fiduciario della famiglia.",
+    reveal: "Ha sottratto denaro dal fondo fiduciario della famiglia.",
     apparentMotive: "Il Conte voleva cambiare avvocato.",
     killerMotive: "Il Conte stava per scoprire l'ammanco nel fondo fiduciario.",
     alibi: "Dici di aver riletto il testamento nello studio dell'archivio.",
@@ -96,6 +105,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Camicia macchiata di colore, foulard, pennello nel taschino",
     relationToVictim: "Ritrattista ospite della villa",
     secret: "Il quadro 'antico' venduto al Conte l'hai dipinto tu: è un falso.",
+    reveal: "Il quadro 'antico' del Conte è un suo falso.",
     apparentMotive: "Il Conte rifiutava di pagarti il ritratto.",
     killerMotive: "Il Conte aveva capito che il suo quadro più prezioso era un tuo falso.",
     alibi: "Dici di aver lavorato al ritratto nell'atelier in soffitta.",
@@ -106,6 +116,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Gilet di lana, stivali, guanti da giardinaggio",
     relationToVictim: "Suo giardiniere",
     secret: "Coltivi piante proibite nella serra e le vendi di nascosto.",
+    reveal: "Coltiva piante proibite nella serra.",
     apparentMotive: "Il Conte voleva radere al suolo la serra per farci un garage.",
     killerMotive: "Il Conte aveva scoperto le tue coltivazioni illegali e voleva denunciarti.",
     alibi: "Dici di aver chiuso la serra alle 22 e di essere andato/a a dormire.",
@@ -116,6 +127,7 @@ const ARCHETYPES: Archetype[] = [
     look: "Cappello, taccuino, macchina fotografica a tracolla",
     relationToVictim: "Giornalista che aveva scritto contro di lui",
     secret: "Ricatti il Conte da mesi con foto compromettenti.",
+    reveal: "Ricattava il Conte con foto compromettenti.",
     apparentMotive: "Il Conte ti aveva fatto licenziare dal tuo vecchio giornale.",
     killerMotive: "Il Conte aveva scoperto il ricatto e ti aveva teso una trappola con la polizia.",
     alibi: "Dici di aver sviluppato foto nella camera oscura.",
@@ -247,7 +259,7 @@ export function mockDetails(ctx: GenerationContext, plot: Plot): Details {
         killerGuidance: isKiller
           ? `Sei tu l'assassino. Sostieni il tuo alibi falso ("${c.alibi}"), fai notare a tutti i litigi tra il Conte e gli altri ospiti e cerca di spostare i sospetti su {{${next}}}.`
           : "",
-        exonerationReveal: isKiller ? "" : `{{${c.key}}} è innocente, ma nascondeva questo: ${c.secret}`,
+        exonerationReveal: isKiller ? "" : ARCHETYPES[i % ARCHETYPES.length].reveal,
         sideQuests: Array.from({ length: ctx.sideQuestsPer }, (_, q) => {
           const target = keys[(i + 1 + q) % keys.length];
           const t = SIDE_QUESTS[(i + q) % SIDE_QUESTS.length];

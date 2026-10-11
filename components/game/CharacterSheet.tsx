@@ -57,7 +57,7 @@ export function CharacterSheet({ view }: { view: PlayerView }) {
               <ul className="list-disc pl-5">
                 {secret.knowledge.map((k, i) => (
                   <li key={i}>
-                    <RichText text={`{{${k.aboutKey}}}: ${k.fact}`} view={view} />
+                    <RichText text={k.fact.includes(`{{${k.aboutKey}}}`) ? k.fact : `{{${k.aboutKey}}}: ${k.fact}`} view={view} />
                   </li>
                 ))}
               </ul>

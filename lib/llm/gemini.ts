@@ -36,7 +36,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function geminiProvider(): LLMProvider {
   const apiKey = process.env.GEMINI_API_KEY;
-  const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
   return {
     name: `gemini:${model}`,
     async generate<T>(req: LLMRequest<T>): Promise<T> {
@@ -74,6 +74,9 @@ export function geminiProvider(): LLMProvider {
           lastError = err;
           if (err instanceof ApiError) {
             const retryable = err.status === 429 || err.status >= 500;
+            if (err.status === 404) {
+              throw new LLMError(`Il modello "${model}" non è disponibile: controlla GEMINI_MODEL (vedi Google AI Studio).`, false);
+            }
             if (!retryable) throw new LLMError(`Errore Gemini ${err.status}: ${err.message}`, false);
             if (attempt < 2) await sleep(err.status === 429 ? 8000 * (attempt + 1) : 2000 * (attempt + 1));
             continue;
