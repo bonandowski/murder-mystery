@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0e0c0b;
+  --surface: #1a1614;
+  --surface-2: #241e1b;
+  --line: #3a302a;
+  --ink: #f1e9df;
+  --muted: #b3a597;
+  --gold: #d4a94e;
+  --gold-ink: #1a1307;
+  --crimson: #b3343f;
+  --green: #5fa36f;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-crimson: var(--crimson);
+  --color-green: var(--green);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-face), Georgia, "Times New Roman", serif;
+}
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(179, 52, 63, 0.12), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-pop {
+  animation: pop-in 0.25s ease-out;
+}
+
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
